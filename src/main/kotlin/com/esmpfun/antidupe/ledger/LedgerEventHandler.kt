@@ -475,7 +475,7 @@ class LedgerEventHandler(
                 material = drop.type, amount = drop.amount,
                 loc = loc, sourcePlayer = killer,
                 sourceAction = LedgerAction.LOOT,
-                sourceContext = "MOB_DEATH:${dead.type.name}"
+                sourceContext = if (dead is org.bukkit.entity.Player) "DEATH_DROP:${dead.type.name}" else "MOB_DEATH:${dead.type.name}"
             )
         }
     }
